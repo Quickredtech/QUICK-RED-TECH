@@ -6,3 +6,5 @@ Flask-Migrate
 email-validator
 Werkzeug
 WTForms
+Flask
+gunicorn
