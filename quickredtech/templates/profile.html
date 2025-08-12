@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Profile | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mb-4 animate__animated animate__fadeIn">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-user text-danger"></i> My Profile</h2>
+    <p><strong>Name:</strong> {{ current_user.name }}</p>
+    <p><strong>Email:</strong> {{ current_user.email }}</p>
+    <a href="/settings" class="btn btn-outline-danger"><i class="fa-solid fa-pen"></i> Edit Profile</a>
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

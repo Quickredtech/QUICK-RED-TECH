@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Admin Panel | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mb-4 animate__animated animate__fadeIn">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-shield-halved text-danger"></i> Admin Panel</h2>
+    <h4 class="mb-3"><i class="fa-solid fa-users text-danger"></i> All Users</h4>
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-danger">
+            <tr><th>Name</th><th>Email</th><th>Admin</th></tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ 'Yes' if user.is_admin else 'No' }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <h4 class="mt-4 mb-3"><i class="fa-solid fa-folder-open text-danger"></i> Submitted Projects</h4>
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-danger">
+            <tr><th>Title</th><th>User</th><th>WhatsApp</th><th>Service</th><th>Status</th><th>Submitted</th></tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.title }}</td>
+                <td>{{ project.owner.name }}</td>
+                <td><a href="https://wa.me/{{ project.whatsapp|replace('+','') }}" target="_blank">{{ project.whatsapp }}</a></td>
+                <td>{{ project.service_type }}</td>
+                <td>{{ project.status }}</td>
+                <td>{{ project.submission_date.strftime('%Y-%m-%d') }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="6">No projects submitted yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <h4 class="mt-4 mb-3"><i class="fa-solid fa-envelope-open-text text-danger"></i> Contact Messages</h4>
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-danger">
+            <tr><th>Name</th><th>Email</th><th>Message</th></tr>
+        </thead>
+        <tbody>
+        {% for msg in contacts %}
+            <tr>
+                <td>{{ msg.name }}</td>
+                <td>{{ msg.email }}</td>
+                <td>{{ msg.message }}</td>
+            </tr>
+        {% else %}
+            <tr><td colspan="3">No contact messages yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

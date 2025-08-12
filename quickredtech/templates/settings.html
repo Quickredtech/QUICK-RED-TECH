@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Settings | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mb-4 animate__animated animate__fadeIn">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-gear text-danger"></i> Settings</h2>
+    <form method="POST" class="row g-3 justify-content-center">
+        <!-- Add fields for changing password and preferences as needed -->
+        <div class="mb-3 col-12 col-md-8">
+            <label for="password" class="form-label">New Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="col-12 col-md-8">
+            <button type="submit" class="btn btn-danger w-100"><i class="fa-solid fa-key"></i> Change Password</button>
+        </div>
+    </form>
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

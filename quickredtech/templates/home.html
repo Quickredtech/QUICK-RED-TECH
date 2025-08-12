@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}Home | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="text-center py-5">
+</div>
+<div class="text-center py-5" style="background: linear-gradient(135deg, #ff0000 0%, #c40000 100%); border-radius: 1.2rem; box-shadow: 0 4px 32px #c4000022; color: #fff;">
+    <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">🚀 Your Digital Projects, Delivered in 62 Days or Less.</h1>
+    <p class="lead animate__animated animate__fadeInUp">We build, fix, and design your digital dreams—fast.</p>
+<div class="row g-4 justify-content-center mt-4">
+</div>
+<div class="row g-4 justify-content-center">
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fa-solid fa-globe service-icon mb-2 animate__animated animate__pulse animate__infinite"></i>
+                <h5 class="card-title mt-3">Website Development</h5>
+                <p class="card-text">Modern, responsive websites for your business or brand.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fa-solid fa-mobile-screen service-icon mb-2 animate__animated animate__pulse animate__infinite"></i>
+                <h5 class="card-title mt-3">App Development</h5>
+                <p class="card-text">Desktop and mobile apps tailored to your needs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fa-solid fa-database service-icon mb-2 animate__animated animate__pulse animate__infinite"></i>
+                <h5 class="card-title mt-3">Database Management</h5>
+                <p class="card-text">Robust database creation and management services.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fa-solid fa-bug service-icon mb-2 animate__animated animate__pulse animate__infinite"></i>
+                <h5 class="card-title mt-3">Bug Fixing</h5>
+                <p class="card-text">We fix software bugs and issues quickly and efficiently.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <i class="fa-solid fa-paint-brush service-icon mb-2 animate__animated animate__pulse animate__infinite"></i>
+                <h5 class="card-title mt-3">Graphic Design</h5>
+                <p class="card-text">Creative graphic design for web, print, and branding.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+    .service-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 32px #ff000044;
+    }
+</style>
+{% endblock %}

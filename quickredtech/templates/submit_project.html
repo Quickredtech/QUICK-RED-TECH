@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Submit Project | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mb-4 animate__animated animate__fadeIn">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-paper-plane text-danger"></i> Submit a New Project</h2>
+    <form method="POST" enctype="multipart/form-data" class="row g-3 justify-content-center">
+        {{ form.hidden_tag() }}
+        <div class="mb-3 col-12 col-md-8">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+        <div class="mb-3 col-12 col-md-8">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control", rows=4) }}
+        </div>
+        <div class="mb-3 col-12 col-md-8">
+            <label class="form-label text-danger fw-bold">{{ form.whatsapp.label.text }} <span class="text-danger">*</span></label>
+            {{ form.whatsapp(class="form-control", placeholder="Enter your WhatsApp number for feedback") }}
+            <div class="form-text">We'll use this number to send you project updates and feedback via WhatsApp.</div>
+        </div>
+        <div class="mb-3 col-12 col-md-8">
+            {{ form.service_type.label(class="form-label") }}
+            {{ form.service_type(class="form-select") }}
+        </div>
+        <div class="mb-3 col-12 col-md-8">
+            {{ form.file.label(class="form-label") }}
+            {{ form.file(class="form-control") }}
+        </div>
+        <div class="col-12 col-md-8">
+            <button type="submit" class="btn btn-danger w-100"><i class="fa-solid fa-paper-plane"></i> Submit Project</button>
+        </div>
+    </form>
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

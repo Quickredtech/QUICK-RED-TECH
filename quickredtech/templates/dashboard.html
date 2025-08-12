@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="card shadow-lg border-0 p-4 mb-4 animate__animated animate__fadeIn">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-list-check text-danger"></i> My Projects</h2>
+    {% if projects %}
+    <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="table-danger">
+            <tr>
+                <th>Title</th>
+                <th>Service Type</th>
+                <th>Status</th>
+                <th>Submitted</th>
+                <th>Completion Estimate</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for project in projects %}
+            <tr>
+                <td>{{ project.title }}</td>
+                <td>{{ project.service_type }}</td>
+                <td>{{ project.status }}</td>
+                <td>{{ project.submission_date.strftime('%Y-%m-%d') }}</td>
+                <td>{% if project.completion_estimate %}{{ project.completion_estimate.strftime('%Y-%m-%d') }}{% else %} 62 days{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% else %}
+    <p>No projects submitted yet.</p>
+    {% endif %}
+    <div class="guarantee mt-4"><i class="fa-solid fa-bolt"></i> All projects are completed in 62 days or less  guaranteed.</div>
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}

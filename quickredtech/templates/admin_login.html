@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Admin Login | Quick Red Tech{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-12 col-md-8 col-lg-4">
+    <div class="card shadow-lg border-0 p-4 mt-5 animate__animated animate__fadeIn">
+      <h2 class="fw-bold mb-4 text-center text-danger"><i class="fa-solid fa-user-shield"></i> Admin Login</h2>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+          {{ form.email.label(class="form-label") }}
+          {{ form.email(class="form-control") }}
+        </div>
+        <div class="mb-3">
+          {{ form.password.label(class="form-label") }}
+          {{ form.password(class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-danger w-100"><i class="fa-solid fa-user-shield"></i> Login as Admin</button>
+      </form>
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger mt-3">{{ message }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+{% endblock %}
